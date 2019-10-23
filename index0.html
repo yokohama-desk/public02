@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= HtmlService.createHtmlOutputFromFile('css').getContent(); ?>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{ tocTitle }}</h2>
+      <p>{{ tocDescription }}</p>
+      <table>
+      <tr><th>日付</th><th>名前</th><th>説明</th></tr>
+        <tr v-for="list in lists"><td>{{ list.date | moment }}</td><td>{{ list.job }}</td><td>{{ list.name }}</td><td>{{ list.client }}</td></tr>
+      </table>
+    </div>
+    <?!= HtmlService.createHtmlOutputFromFile('js').getContent(); ?>
+  </body>
+</html>
+
+
+
+
+

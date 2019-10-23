@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= HtmlService.createHtmlOutputFromFile('css').getContent(); ?>
+  </head>
+  <body>
+  <div id="mainform">
+    <div id="app">
+      <h2>{{ tocTitle }}</h2>
+      <p>{{ tocDescription }}</p>
+      <table class="table table-hover">
+      <thead><th v-for="header in headers">{{ header }}</th></thead>
+      <tbody>
+        <tr v-for="list in lists"><td>{{ list.date | moment }}</td><td>{{ list.job }}</td><td>{{ list.name }}</td><td>{{ list.client }}</td>
+        <td><img class="img-responsive center-block" :src="list.image" /></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <?!= HtmlService.createHtmlOutputFromFile('jslogin').getContent(); ?>
+    <?!= HtmlService.createHtmlOutputFromFile('js2').getContent(); ?>
+  </body>
+</html>
+
+
+
+
+

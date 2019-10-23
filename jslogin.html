@@ -1,0 +1,31 @@
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+<script>
+//最初に実行する
+google.script.run.withSuccessHandler(onSuccess).GetUser();
+//GetUserの実行結果を受け取る
+function onSuccess(login){
+  //返り値を配列に戻す
+  var json = JSON.parse(login);
+      console.log(json);
+  //判定結果を取得
+  var result = json[1];
+  //ノードを取得
+  var node = document.getElementById("mainform");
+  //判定結果に基いて処理
+  if(result == "OK"){
+    //OKなのでフォームを表示する
+    node.style.display = "block";
+    //アラートを出してみる
+    alert(json[0] + "さん、こんにちは！！")
+  }else{
+    //NGなのでメッセージをnodeに叩き込む
+    node.innerHTML = json[0] + "さんは、アクセス不可ですよ";
+    node.style.display = "none";
+  }
+
+}
+</script>
+
+
